@@ -1,5 +1,8 @@
 package com.david.todosq4.services;
 
+import java.util.List;
+import java.util.Optional;
+
 import com.david.todosq4.models.Task;
 import com.david.todosq4.repository.TaskRepository;
 
@@ -26,6 +29,19 @@ public class TaskService {
   }
 
   public Task getATask(Integer id) {
-    return taskRespository.getOne(id);
+    Optional<Task> ot = taskRespository.findById(id);
+    if (ot.isPresent()) {
+      return ot.get();
+    } else {
+      return null;
+    }
+  }
+
+  public List<Task> findByStatus(String status) {
+    return taskRespository.findByStatus(status);
+  }
+
+  public List<Task> getAllTasks() {
+    return taskRespository.findAll();
   }
 }
