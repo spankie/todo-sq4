@@ -78,4 +78,13 @@ public class Task {
     this.createdAt = createdAt;
   }
 
+  public Task() {
+  }
+
+  public Task(String title, String description, String status) {
+    this.title = title;
+    this.description = description;
+    this.status = status;
+  }
+
 }
